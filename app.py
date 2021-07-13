@@ -11,13 +11,13 @@ class MainApp(MDApp):
         if self.state ==0:
             self.state =1
             self.toolbar.title ="Decimal to Binary"
-            self.input.text ="enter decimal number"
+            self.input_label.text ="enter a decimal number"
             self.converted.text =""
             self.label.text =""
         else:
             self.state =0
             self.toolbar.title ="Binary to Decimal"
-            self.input.text ="enter binary number"
+            self.input_label.text ="enter a binary number"
             self.converted.text =""
             self.label.text =""
             
