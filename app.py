@@ -11,6 +11,8 @@ class MainApp(MDApp):
         print('flipping ...')
     def convert(self, args):
         val =int(self.input.text, 2)
+        self.converted.text =str(val)
+        self.label.text ='in decimal is:'
     def build(self):
         screen =MDScreen()
         
@@ -39,14 +41,12 @@ class MainApp(MDApp):
         )
         screen.add_widget(self.input)
         self.label =MDLabel(
-            text ='in decimal is:',
             halign ='center',
             pos_hint ={'center_x': 0.5, 'center_y': 0.35},
             theme_text_color ="Secondary"
         )
         # output
         self.converted =MDLabel(
-            text ='888',
             halign ='center',
             pos_hint ={'center_x': 0.5, 'center_y': 0.3},
             theme_text_color ="Primary",
