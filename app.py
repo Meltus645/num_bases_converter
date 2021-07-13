@@ -36,6 +36,13 @@ class MainApp(MDApp):
             font_size =22
         )
         screen.add_widget(self.input)
+        self.label =MDLabel(
+            text ='in decimal is:',
+            halign ='center',
+            pos_hint ={'center_x': 0.5, 'center_y': 0.35},
+            theme_text_color ="Secondary"
+        )
+        screen.add_widget(self.label)
         return screen
 
 if __name__ == '__main__':
