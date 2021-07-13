@@ -20,6 +20,13 @@ class MainApp(MDApp):
             ["rotate-3d-variant",lambda x: self.flip()]
         ]
         screen.add_widget(self.toolbar)
+        
+        # logo
+        screen.add_widget(Image(
+            source ='logo.png',
+            pos_hint ={'center_x': 0.5, 'center_y': 0.7}
+           )
+        )
         return screen
 
 if __name__ == '__main__':
