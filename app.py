@@ -7,6 +7,8 @@ from kivymd.uix.label import MDLabel
 from kivymd.uix.toolbar import MDToolbar
 
 class MainApp(MDApp):
+    def flip(self):
+        print('flipping ...')
     def build(self):
         screen =MDScreen()
         
@@ -14,6 +16,9 @@ class MainApp(MDApp):
         # toolbar
         self.toolbar =MDToolbar(title ="Bin2Dec Converter")
         self.toolbar.pos_hint ={"top": 1}
+        self.toolbar.right_action_items =[ 
+            ["rotate-3d-variant",lambda x: self.flip()]
+        ]
         screen.add_widget(self.toolbar)
         return screen
 
