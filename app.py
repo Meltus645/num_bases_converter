@@ -11,29 +11,35 @@ class MainApp(MDApp):
         if self.state ==0:
             self.state =1
             self.toolbar.title ="Decimal to Binary"
-            self.input_label.text ="enter a decimal number"
+            self.input_label.text ="Enter a decimal number"
             self.converted.text =""
             self.label.text =""
         else:
             self.state =0
             self.toolbar.title ="Binary to Decimal"
-            self.input_label.text ="enter a binary number"
+            self.input_label.text ="Enter a binary number"
             self.converted.text =""
             self.label.text =""
             
     def convert(self, args):
-        if self.state ==0:
-            if self.input.text =="":
-                self.input_label.font_size =14
-                self.input_label.text ='this field is required!'
-            else:
+        if self.input.text =="":
+            self.error_label.font_size =14
+            self.error_label.text ='this field is required!'
+        else:
+            if self.state ==0:
                 val =int(self.input.text, 2)
                 self.converted.text =str(val)
-                self.input_label.text =''
+                self.error_label.text =''
                 self.label.text ='in decimal is:'
+            else:
+                val =bin(int(self.input.text))[2:]
+                self.converted.text =val
+                self.error_label.text =''
+                self.label.text ='in binary is:'
             
     def build(self):
         self.state =0
+        self.title ="Number Bases Converter"
         screen =MDScreen() 
         """ ui widgets """
         # toolbar
@@ -51,21 +57,28 @@ class MainApp(MDApp):
            )
         )
         # user input
+        self.input_label =MDLabel(
+            text ='Enter a binary number',
+            halign ='left',
+            pos_hint ={'center_x': 0.6, 'center_y': 0.55},
+            theme_text_color ="Secondary"
+        )
+        screen.add_widget(self.input_label)
         self.input =MDTextField(
             text ='',
-            halign ='center',
+            halign ='left',
             size_hint =(0.8, 1),
             pos_hint ={'center_x': 0.5, 'center_y': 0.5},
             font_size =22
         )
         screen.add_widget(self.input)
-        self.input_label =MDLabel(
-            text ='enter a binary number',
-            halign ='center',
-            pos_hint ={'center_x': 0.5, 'center_y': 0.45},
-            theme_text_color ="Secondary"
+        self.error_label =MDLabel(
+            text ='',
+            halign ='left',
+            pos_hint ={'center_x': 0.6, 'center_y': 0.45},
+            theme_text_color ="Error"
         )
-        screen.add_widget(self.input_label)
+        screen.add_widget(self.error_label)
         self.label =MDLabel(
             halign ='center',
             pos_hint ={'center_x': 0.5, 'center_y': 0.35},
