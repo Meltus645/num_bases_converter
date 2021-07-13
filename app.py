@@ -27,6 +27,15 @@ class MainApp(MDApp):
             pos_hint ={'center_x': 0.5, 'center_y': 0.7}
            )
         )
+        # user input
+        self.input =MDTextField(
+            text ='enter a binary number',
+            halign ='center',
+            size_hint =(0.8, 1),
+            pos_hint ={'center_x': 0.5, 'center_y': 0.45},
+            font_size =22
+        )
+        screen.add_widget(self.input)
         return screen
 
 if __name__ == '__main__':
