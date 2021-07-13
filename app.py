@@ -10,7 +10,11 @@ class MainApp(MDApp):
     def build(self):
         screen =MDScreen()
         
-        # ui widgets
+        """ ui widgets """
+        # toolbar
+        self.toolbar =MDToolbar(title ="Bin2Dec Converter")
+        self.toolbar.pos_hint ={"top": 1}
+        screen.add_widget(self.toolbar)
         return screen
 
 if __name__ == '__main__':
