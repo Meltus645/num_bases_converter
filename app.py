@@ -22,14 +22,15 @@ class MainApp(MDApp):
             self.label.text =""
             
     def convert(self, args):
-        if self.input.text !="":
-            val =int(self.input.text, 2)
-            self.converted.text =str(val)
-            self.input_label.text =''
-            self.label.text ='in decimal is:'
-        else:
-            self.input_label.font_size =14
-            self.input_label.text ='this field is required!'
+        if self.state ==0:
+            if self.input.text =="":
+                self.input_label.font_size =14
+                self.input_label.text ='this field is required!'
+            else:
+                val =int(self.input.text, 2)
+                self.converted.text =str(val)
+                self.input_label.text =''
+                self.label.text ='in decimal is:'
             
     def build(self):
         self.state =0
